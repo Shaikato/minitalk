@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 05:42:31 by randre            #+#    #+#             */
-/*   Updated: 2023/11/13 14:37:09 by randre           ###   ########.fr       */
+/*   Updated: 2023/11/16 00:41:56 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	ft_btoa(int s_pid, char c)
 			kill(s_pid, SIGUSR1);
 		else
 			kill(s_pid, SIGUSR2);
-		usleep(400);
+		usleep(500);
 		bit++;
 	}
 }

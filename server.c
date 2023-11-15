@@ -6,7 +6,7 @@
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 05:42:36 by randre            #+#    #+#             */
-/*   Updated: 2023/11/13 14:36:54 by randre           ###   ########.fr       */
+/*   Updated: 2023/11/16 00:43:00 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,10 @@ void	handle_signal(int sig)
 	}
 }
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	(void)argv;
-	if (argc != 1)
-	{
-		ft_printf("Too many arguments, aborting...\n");
-		return (1);
-	}
 	ft_printf("%d\n", (int)getpid());
-	while (argc == 1)
+	while (1)
 	{
 		signal(SIGUSR1, handle_signal);
 		signal(SIGUSR2, handle_signal);
