@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: randre <randre@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 05:42:31 by randre            #+#    #+#             */
-/*   Updated: 2023/11/16 00:41:56 by randre           ###   ########.fr       */
+/*   Updated: 2024/02/02 10:45:17 by randre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,14 @@ static int	ft_atoi(const char *str)
 	return (val * i);
 }
 
+static void	ft_receive(int sig)
+{
+	if (sig == SIGUSR2)
+		ft_printf("Confirmation received !\n");
+	else
+		ft_printf("Confirmation received !\n");
+}
+
 void	ft_btoa(int s_pid, char c)
 {
 	int	bit;
@@ -67,6 +75,8 @@ int	main(int argc, char **argv)
 	s_pid = ft_atoi(argv[1]);
 	while (*argv[2])
 	{
+		signal(SIGUSR1, &ft_receive);
+		signal(SIGUSR2, &ft_receive);
 		ft_btoa(s_pid, *argv[2]);
 		argv[2]++;
 	}
